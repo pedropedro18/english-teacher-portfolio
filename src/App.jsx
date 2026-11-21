@@ -4,6 +4,7 @@ import "./App.css";
 const WHATSAPP = "244923030010";
 const TELEFONE = "923 030 010";
 const PLATAFORMA = "https://teacher-pedro-react.vercel.app";
+const CATALOGO = "https://teacher-pedro-cursos.vercel.app";
 
 const linkWhatsApp = (mensagem) =>
   `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
@@ -21,7 +22,6 @@ const cursos = [
   {
     titulo: "Iniciante (A1–A2)",
     texto: "Vocabulário essencial, frases do dia a dia e pronúncia desde o início.",
-    link: "https://teacher-pedro-cursos.vercel.app",
   },
   {
     titulo: "Intermédio (B1–B2)",
@@ -114,6 +114,9 @@ export default function App() {
           <div className="botoes">
             <a className="btn principal" href="#contacto">Marcar uma aula</a>
             <a className="btn alt" href="#materiais">Ver materiais</a>
+            <a className="btn alt" href={CATALOGO} target="_blank" rel="noopener noreferrer">
+              Ver catálogo de cursos
+            </a>
           </div>
           <div className="escada" role="list" aria-label="Níveis de inglês de A1 a C2">
             {niveis.map(([nivel, nome]) => (
@@ -160,11 +163,6 @@ export default function App() {
                   <h3>{c.titulo}</h3>
                   <p>{c.texto}</p>
                   <div className="acoes">
-                    {c.link && (
-                      <a className="ligacao" href={c.link} target="_blank" rel="noopener noreferrer">
-                        Ver catálogo de cursos
-                      </a>
-                    )}
                     <a
                       className="ligacao"
                       href={linkWhatsApp(`Olá, Teacher Pedro! Tenho interesse no curso ${c.titulo}.`)}
